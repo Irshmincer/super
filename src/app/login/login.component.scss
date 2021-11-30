@@ -5,9 +5,20 @@
     align-items: center;
     background:#363740;
 
+
   }
 
-  .title {
+  .button{
+    margin-left: 120px
+  }
+
+  .input{
+    width:450px
+  
+  }
+
+  .mat-card>:first-child {
     display: flex;
     justify-content: center;
+    margin-top: 13px;
   }
