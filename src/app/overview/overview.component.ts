@@ -31,6 +31,8 @@ export class OverviewComponent implements OnInit {
     },
   ];
   barChartOptions: ChartOptions = {
+
+    
     responsive: true,
     legend: {
       display: false,
@@ -48,12 +50,11 @@ export class OverviewComponent implements OnInit {
           
         },
       ],
-      xAxes: [
-        {
-          
-         
+      xAxes: [{
+     
           gridLines: {
             lineWidth: 0,
+            
             
           },
           
