@@ -1,7 +1,7 @@
 {
     "/api": {
       "target": "http://ec2-3-109-206-226.ap-south-1.compute.amazonaws.com:3001/",
-      "secure": true,
+      "secure": false,
       "changeOrigin": true,
       "pathRewrite": {
         "^/api": ""
