@@ -1,0 +1,27 @@
+@mixin font-method($font-size: 16px, $font-weight: normal, $line-height: 20px, $letter-spacing: 0.2px) {
+  font-family: Muli;
+  font-style: normal;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin button-method($width, $height, $text-case: capitalize, $pl: initial, $pr: initial, $pt: initial, $pb: initial) {
+  width: $width;
+  height: $height;
+  text-transform: $text-case;
+  padding-left: $pl;
+  padding-right: $pr;
+  padding-top: $pt;
+  padding-bottom: $pb;
+  border: none;
+  background-color: #53caa6;
+  border-radius: 4px;
+  color: #fefefe;
+  cursor: pointer;
+  text-align: center;
+  &:hover {
+    box-shadow: 0 5px 15px rgb(0, 0, 0, 0.3);
+  }
+}

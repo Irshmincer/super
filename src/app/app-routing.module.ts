@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
  { path: '',
   loadChildren: () => import('./login/login.module').then(x => x.LoginModule),pathMatch: 'prefix', },
-  { path: 'overview', redirectTo: '' },
+  { path: 'home', redirectTo: '' },
   { path: '**', redirectTo: '404' }
 
 ];

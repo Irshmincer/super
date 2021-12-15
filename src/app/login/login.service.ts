@@ -11,6 +11,15 @@ import { Login, UserData } from './login.model';
 export class LoginService {
 
 
+  set user_profile(role: UserData) {
+    localStorage.setItem('user_info', JSON.stringify(role));
+  }
+
+  get user_profile(): UserData {
+   
+    return JSON.parse(localStorage.getItem('user_info') || '{}');
+  }
+
 
   constructor(private http: HttpClient, private router: Router) {}
 

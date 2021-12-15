@@ -1,0 +1,141 @@
+/*#region flex-grid*/
+$grid-start: 1;
+$grid-end: 12;
+
+@mixin col-prop {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+@mixin col-auto-prop {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+}
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.col {
+  @include col-prop();
+}
+
+.col-auto {
+  @include col-auto-prop();
+}
+
+@for $val from $grid-start through $grid-end {
+  .col-#{$val} {
+    -ms-flex: 0 0 percentage($val/$grid-end);
+    flex: 0 0 percentage($val/$grid-end);
+    max-width: percentage($val/$grid-end);
+  }
+
+  .offset-#{$val} {
+    margin-left: percentage($val/$grid-end);
+  }
+}
+
+@each $screen, $size in (sm: 576px, md: 768px, lg: 992px, xl: 1200px) {
+  @media (min-width: #{$size}) {
+    .col-#{$screen} {
+      @include col-prop();
+    }
+
+    .col-#{$screen}-auto {
+      @include col-auto-prop();
+    }
+
+    @for $val from $grid-start through $grid-end {
+      .col-#{$screen}-#{$val} {
+        -ms-flex: 0 0 percentage($val/$grid-end);
+        flex: 0 0 percentage($val/$grid-end);
+        max-width: percentage($val/$grid-end);
+      }
+      .offset-#{$screen}-#{$val} {
+        margin-left: percentage($val/$grid-end);
+      }
+    }
+  }
+}
+
+/*#endregion */
+
+/*#region margin and padding*/
+$mp: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 1rem,
+  4: 1.5rem,
+  5: 2rem,
+  6: 2.5rem,
+  7: 3rem,
+  auto: auto
+);
+
+@each $prop-key, $prop-val in (m: margin, p: padding) {
+  @each $key, $val in $mp {
+    .#{$prop-key}-#{$key} {
+      #{$prop-val}: $val !important;
+    }
+
+    .#{$prop-key}t-#{$key},
+    .#{$prop-key}y-#{$key} {
+      #{$prop-val}-top: $val !important;
+    }
+
+    .#{$prop-key}b-#{$key},
+    .#{$prop-key}y-#{$key} {
+      #{$prop-val}-bottom: $val !important;
+    }
+
+    .#{$prop-key}l-#{$key},
+    .#{$prop-key}x-#{$key} {
+      #{$prop-val}-left: $val !important;
+    }
+
+    .#{$prop-key}r-#{$key},
+    .#{$prop-key}x-#{$key} {
+      #{$prop-val}-right: $val !important;
+    }
+  }
+}
+/*#endregion */
+
+/*#region fonts*/
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/muli/v20/7Aulp_0qiz-aVz7u3PJLcUMYOFnOkEk40eiNxw.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/muli/v20/7Aulp_0qiz-aVz7u3PJLcUMYOFnOkEk50eiNxw.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/muli/v20/7Aulp_0qiz-aVz7u3PJLcUMYOFnOkEk30eg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/*#endregion*/
