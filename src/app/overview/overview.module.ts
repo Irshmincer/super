@@ -12,6 +12,7 @@ import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { OverviewService } from './overview.service';
 import { ChartsModule } from 'ng2-charts';
+import { MatFormFieldModule } from '@angular/material/form-field';
 //import { NgChartsModule } from 'ng2-charts';
 
 
@@ -27,7 +28,8 @@ import { ChartsModule } from 'ng2-charts';
     MatGridListModule,
     MatCardModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    MatFormFieldModule
 
   ],
   exports:[OverviewComponent],

@@ -8,6 +8,15 @@
       />
     </div>
     <span class="shopname">{{ shopname?.name }}</span>
+
+
+    <span class="example-spacer"></span>
+  
+
+        <input  matInput placeholder="Search">   
+        
+   
+  
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -70,30 +79,32 @@
 
           <div>
             <div class="new">
-              <h1>
-                <img
-                  class="groupicon"
-                  src="../../assets/application/new.svg"
-                />{{ salesfromnewcustomer?.name }}
+              <img
+              class="groupicon"
+              src="../../assets/application/new.svg"
+            />
+              <h1 class="salesfromnewcustomers">
+               {{ salesfromnewcustomer?.name }}
               </h1>
               <p class="salesnewcustomer">
-                $ {{ salesfromnewcustomer?.sales }}
+              <b>   $ {{ salesfromnewcustomer?.sales }} </b> 
               </p>
             </div>
             <div class="exiting">
-              <h1>
-                <img
+              <img
                   class="groupicon"
                   src="../../assets/application/exiting.svg"
-                />{{ salesfromexcitingcustomer?.name }}
+                />
+              <h1 class="salesfromnewcustomers">
+                {{ salesfromexcitingcustomer?.name }}
               </h1>
               <p class="salesnewcustomer">
-                $ {{ salesfromexcitingcustomer?.sales }}
+               <b>  $ {{ salesfromexcitingcustomer?.sales }} </b> 
               </p>
             </div>
           </div>
 
-          <div >
+          <div class="mychart" >
             <canvas width="3" height="1"
               *ngIf="loaded"
               baseChart
