@@ -4,11 +4,14 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { Login, UserData } from './login.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+
+  baseUrl = environment.baseUrl
 
 
   set user_profile(role: UserData) {
@@ -25,7 +28,7 @@ export class LoginService {
 
 
   loadUserProfile(form: string ): Observable<Login> {
-    return this.http.post<Login>(`http://localhost:3000/superdash_app/api/v1/login`, form);
+    return this.http.post<Login>(`${this.baseUrl}superdash_app/api/v1/login`, form);
   }
 
 }
