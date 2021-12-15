@@ -9,6 +9,7 @@ export interface DashboardChart {
   legend: true;
   colors?: [{ backgroundColor: ['#0088C7', '#FFB200', '#F46F20', '#9C27B0', '#009688', '#FFC107'] }];
   options: ChartOptions;
+
 }
 
 
@@ -25,12 +26,3 @@ export interface salesCount {
 }
 
 
-// export interface DashboardChart {
-//   type: ChartType;
-// //  labels: Label[];
-//   data?: number[]; // for pie chart
-//   dataset?: ChartDataset[]; // for bar chart
-//   legend: true;
-//   colors?: [{ backgroundColor: ['#0088C7', '#FFB200', '#F46F20', '#9C27B0', '#009688', '#FFC107'] }];
-//   options: ChartOptions;
-// }
