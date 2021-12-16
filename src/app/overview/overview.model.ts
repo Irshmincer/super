@@ -14,6 +14,27 @@ export interface DashboardChart {
 
 
 
+export interface shipRocketCount {
+  status: number;
+  message: string;
+  data: shiprocket;
+}
+
+export interface shiprocket {
+  total_amount: number;
+}
+export interface razorPayCount {
+  status: number;
+  message: string;
+  data: razorpay[];
+}
+
+export interface razorpay {
+  total_razorpay_payment: number;
+}
+
+
+
 export interface salesCounts {
   status: number;
   message: string;

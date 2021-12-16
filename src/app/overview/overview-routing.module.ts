@@ -5,9 +5,8 @@ import { OverviewComponent } from './overview.component';
 
 const routes: Routes = [
   {path:'', component: OverviewComponent},
-  {path:'overview', component: OverviewComponent},
-  {path:'facebook', component: FacebookComponent},
-  {path:'razor', component: OverviewComponent},
+ 
+  
 
   
 

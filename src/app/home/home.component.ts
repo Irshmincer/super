@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private login: LoginService) { }
 
   ngOnInit(): void {
+    this.namegetter();
   }
   namegetter() {
     const shopname = this.login.user_profile;

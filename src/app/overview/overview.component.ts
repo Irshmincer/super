@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
 import { UserData } from '../login/login.model';
 import { LoginService } from '../login/login.service';
-import { salesCount } from './overview.model';
+import { razorpay, salesCount, shiprocket } from './overview.model';
 import { OverviewService } from './overview.service';
 
 @Component({
@@ -15,7 +15,9 @@ export class OverviewComponent implements OnInit {
   shopname!: UserData;
   sales!: salesCount;
   name!: salesCount[];
+  shiprocketcount !: shiprocket;
   salesname!: salesCount[];
+  razorpay!: razorpay;
   newcustomer!: salesCount;
   salesfromnewcustomer!: salesCount;
   salesfromexcitingcustomer!: salesCount;
@@ -74,7 +76,33 @@ export class OverviewComponent implements OnInit {
   ngOnInit(): void {
     this.salescount();
     this.namegetter();
+    this.shiprocket();
+    this.razor();
   }
+
+  shiprocket(){
+    const form = {
+      vendor_name: this.login.user_profile.name
+    };
+    this.service.shipRocket(form).subscribe(data =>{
+      this.shiprocketcount = data.data
+
+    })
+  }
+
+  razor(){
+    const form = {
+      fromdate : "",
+      todate: "",
+      vendor_name :  this.login.user_profile.name
+    }
+
+    this.service.razorPay(form).subscribe(data =>{
+      this.razorpay = data.data[0]
+      console.log(this.razorpay)
+    })
+  }
+
 
   namegetter() {
     const shopname = this.login.user_profile;
