@@ -10,6 +10,7 @@ import { FacebookComponent } from './facebook.component';
   imports: [
     CommonModule,
     FacebookRoutingModule
-  ]
+  ],
+  exports: [FacebookComponent]
 })
 export class FacebookModule { }
