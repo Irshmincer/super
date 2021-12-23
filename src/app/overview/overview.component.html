@@ -1,7 +1,14 @@
 
+
+<div class="header">
+  <h1>Overview</h1>
+  
+</div>
+
+
     <div class="grid-half">
       <mat-card class="mat-card">
-        <div>
+        <div class="container">
           <img class="card1" src="../../assets/application/card1_shopify.svg" />
 
           <div class="count">
@@ -11,37 +18,40 @@
 
           <div class="count-half">
             <img class="groupicon" src="../../assets/application/group.svg" />
+            <div class="count">
 
-            <h1 class="customers">{{ newcustomer?.name }}</h1>
-            <p>
-              <b>
-                {{ newcustomer?.sales }}
-              </b>
-            </p>
+              <h1 >{{ newcustomer?.name }}</h1>
+              <p>
+                <b>
+                  {{ newcustomer?.sales }}
+                </b>
+              </p>
+
+            </div>
           </div>
 
-          <div>
+          <div class="newone">
             <div class="new">
               <img
               class="groupicon"
               src="../../assets/application/new.svg"
             />
-              <h1 class="salesfromnewcustomers">
+              <h2 class="salesfromnewcustomers">
                {{ salesfromnewcustomer?.name }}
-              </h1>
-              <p class="salesnewcustomer">
+              </h2>
+              <p >
               <b>   $ {{ salesfromnewcustomer?.sales }} </b> 
               </p>
             </div>
-            <div class="exiting">
+            <div class="new">
               <img
                   class="groupicon"
                   src="../../assets/application/exiting.svg"
                 />
-              <h1 class="salesfromnewcustomers">
+              <h2 class="salesfromnewcustomers">
                 {{ salesfromexcitingcustomer?.name }}
-              </h1>
-              <p class="salesnewcustomer">
+              </h2>
+              <p >
                <b>  $ {{ salesfromexcitingcustomer?.sales }} </b> 
               </p>
             </div>

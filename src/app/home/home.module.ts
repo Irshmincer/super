@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeComponent } from './home.component';
 import { LoginService } from '../login/login.service';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { LoginService } from '../login/login.service';
     MatGridListModule,
     MatCardModule,
     HttpClientModule,
+    MatButtonModule
 
   ],
   exports:[HomeComponent],

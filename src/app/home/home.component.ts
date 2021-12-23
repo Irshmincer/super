@@ -19,4 +19,11 @@ export class HomeComponent implements OnInit {
     const shopname = this.login.user_profile;
     this.shopname = shopname;
   }
+
+
+  getSingleLetter() {
+    let singleLetter = this.login.user_profile.name;
+
+    return singleLetter?.substring(0, 1).toUpperCase();
+  }
 }

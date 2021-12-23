@@ -8,10 +8,47 @@ mat-sidenav {
   text-align: center;
 }
 
+
+//
+/* Styles for wrapping the search box */
+
+.main {
+  width: 50%;
+  margin: 50px auto;
+}
+
+
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+
+//
+
+.header{
+  
+  position: relative;
+  top: 30px;
+  left: 51px;
+
+}
+
 mat-sidenav-container {
   height: calc(100vh - 65px);
 }
 
+.container {
+  margin-left: 15px;
+}
 mat-toolbar {
   background: white;
   color: black;
@@ -74,7 +111,7 @@ mat-sidenav {
 }
 
 mat-card {
-  width: calc(100% - 20px);;
+  width: 663px;
   height: 600px;
   border-radius: 16px;
 }
@@ -89,9 +126,10 @@ mat-card {
 }
 
 .count {
-  padding: 0px;
-  margin-left: 71px;
-  margin-top: -67px;
+  display: inline-grid;
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 4px;
 
   h1 {
     font-size: 16px;
@@ -111,12 +149,30 @@ mat-card {
 }
 
 .count-half {
-  margin-left: 551px;
-  margin-top: -81px;
-}
-.groupicon {
-  width: 27px;
-  margin-top: 16px;
+  display: inline-grid;
+  float: right;
+  position: relative;
+  right: 12px;
+
+  .groupicon {
+    width: 27px;
+    margin-top: 16px;
+    position: relative;
+    left: -181px;
+    top: -6px;
+  }
+
+  .count {
+    display: inline-grid;
+    position: absolute;
+    margin-left: -139px;
+    margin-top: 4px;
+
+    p{
+      position: relative;
+    left: -42px;
+    }
+  }
 }
 .example-spacer {
   flex: 1 1 auto;
@@ -127,8 +183,6 @@ input {
   border: 1px solid;
   background: transparent;
 }
-
-
 
 .salesfromnewcustomers {
   margin-left: 34px;
@@ -142,7 +196,7 @@ canvas {
 
 .customers {
   margin-top: -31px;
-  margin-left: 32px;
+  margin-left: 17px;
   color: black;
   // width:10px;
 }
@@ -162,11 +216,6 @@ canvas {
   color: #555555;
 }
 
-
-
-
-
-
 .exiting {
   margin-top: -5px;
 }
@@ -177,16 +226,31 @@ p {
 }
 
 .grid-half {
-  display: grid;
+  display: inline-grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   grid-column-gap: 30px;
-  margin-top: 80px;
+  margin-top: 45px;
   margin-left: 40px;
 }
 
-.salesnewcustomer {
-  position: relative;
-  margin-left: 550px;
-  margin-top: -41px;
+// .salesnewcustomer {
+//   position: relative;
+//   margin-left: 550px;
+//   margin-top: -41px;
+// }
+
+.newone{
+  margin-top: 31px;
+  
+    
+    p{
+      position: relative;
+      float: right;
+      top: -43px;
+      left: -114px;
+    }
+  
+  
 }
+
