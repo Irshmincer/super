@@ -1,11 +1,12 @@
 mat-sidenav {
     //margin: 16px;
-    width: 200px;
+    width: 300px;
     border-right: none;
     background: #363740;
     color: white;
     padding: 16px;
     text-align: center;
+    overflow: hidden;
   }
   
   mat-sidenav-container {
@@ -28,7 +29,9 @@ mat-sidenav {
   .button {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
     font-size: 16px;
     border: none;
     height: 56px;
@@ -36,20 +39,41 @@ mat-sidenav {
     padding: 10px;
     background: #363740;
     margin: 3px 0px;
+    
+    .img{
+      display: inline
+    }
+    .text{
+      display: inline;
+      position: relative;
+    left: -49px;
+      
+      
+    }
   }
+
+
+
+  a{
+    text-decoration: none;
+  }
+ 
   
   .active-sidenav-link {
-    background: grayscale / gray;
+    background-color:grayscale($color: #4a4848)  ;
   
-    color: #dde2ff;
+    color: #fafafa;
     border-left: 4px solid #dde2ff;
   }
+
+ 
   
   mat-sidenav {
-    width: 255px;
+    width: 300px;
     margin-left: -16px;
     margin-top: -12px;
     padding-right: 0px;
+    overflow: hidden;
   }
   
   .mat-elevation-z5 {
@@ -109,6 +133,37 @@ mat-sidenav {
       font-size: 24px;
     }
   }
+
+  .overview{
+    position: relative;
+    margin-left: -52px;
+    margin-top: 10px;
+  }
+
+  .shopfiy{
+    position: relative;
+    left: -57px;
+  }
+
+  .facebook{
+    position: relative;
+    right: 41px;
+  }
+
+  .razorimg{
+    position: relative;
+    left: -8px;
+  }
+    .razor{
+      position: relative;
+      right: 61px;
+    }
+  
+
+  .shiprocket{
+    position: relative;
+    right: 32px;
+  }
   
   .count-half {
     margin-left: 551px;
@@ -162,6 +217,10 @@ mat-sidenav {
     color: #555555;
   }
   
+  .icontext{
+    margin-left:32px;
+    margin-top: -3px;
+  }
   
   
   

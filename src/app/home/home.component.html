@@ -13,59 +13,60 @@
 
 <mat-sidenav-container>
   <mat-sidenav mode="side" opened>
-    <button
+    <a
       mat-button
       class="button"
       routerLink="/overview"
       routerLinkActive="active-sidenav-link"
     >
-      <img class="icon" src="../../assets/application/overview.svg" />Overview
-    </button>
-    <button
+      <img class="img" src="../../assets/application/overview.svg" />
+      <span class="text">Overview</span>
+  </a>
+    <a
       mat-button
       class="button"
       routerLink="/shopfiy"
       routerLinkActive="active-sidenav-link"
     >
-      <img class="icon" src="../../assets/application/Shopify.svg" /><span>Shopfiy</span>
-    </button>
-    <button
+      <img class="img" src="../../assets/application/Shopify.svg" />
+      <span class="shopfiy">Shopfiy</span>
+</a>
+    <a
       mat-button
       class="button"
       routerLink="/amazon"
       routerLinkActive="active-sidenav-link"
     >
-      <img class="icon" src="../../assets/application/amazon.svg" /><span
-        >Amazon</span
-      >
-    </button>
-    <button
+      <img class="img" src="../../assets/application/amazon.svg" />
+      <span class="text">Amazon</span>
+</a>
+    <a
       mat-button
       class="button"
       routerLink="/facebook"
       routerLinkActive="active-sidenav-link"
     >
-      <img class="icon" src="../../assets/application/facebook.svg" />Facebook
-    </button>
-    <button
+      <img  class="img" src="../../assets/application/Facebook.svg" />
+      <span class="facebook">Facebook</span>
+</a>
+    <a
       mat-button
       class="button"
       routerLink="/razorpay"
       routerLinkActive="active-sidenav-link"
     >
-      <img class="icon" src="../../assets/application/Razorpay.svg" />Razor
-    </button>
-    <button
+      <img class="razorimg" src="../../assets/application/Razorpay.svg" />
+      <span class="razor">Razor</span>
+</a>
+    <a
       mat-button
       class="button"
       routerLink="/shiprocket"
       routerLinkActive="active-sidenav-link"
     >
-      <img
-        class="icon"
-        src="../../assets/application/Shiprocket.svg"
-      />ShipRocket
-    </button>
+      <img  class="img" src="../../assets/application/Shiprocket.svg" />
+      <span class="shiprocket">ShipRocket</span>
+</a>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
