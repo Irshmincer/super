@@ -4,20 +4,31 @@ import { Label } from 'ng2-charts';
 export interface DashboardChart {
   type: ChartType;
   labels: Label[];
-  data?: number[]; // for pie chart
-  dataset?: ChartDataSets[]; // for bar chart
+  data?: any; // for pie chart
+  dataset?: any; // for bar chart
   legend: true;
-  colors?: [{ backgroundColor: ['#0088C7', '#FFB200', '#F46F20', '#9C27B0', '#009688', '#FFC107'] }];
+  colors?: [{ backgroundColor: ['#0088C7'] }];
   options: ChartOptions;
 
 }
 
 
+export interface NewCustomer {
+  status: number;
+  message: string;
+  result: customer[];
+}
+
+export interface customer {
+  totalcount: number;
+  name: string;
+}
+
 
 export interface shipRocketCount {
   status: number;
   message: string;
-  data: shiprocket;
+  data: shiprocket[];
 }
 
 export interface shiprocket {
@@ -47,3 +58,27 @@ export interface salesCount {
 }
 
 
+
+export interface TotalSaleShopify {
+  status: number;
+  message: string;
+  data: totalsale[];
+}
+
+export interface totalsale {
+  totalsales: number;
+  order_date: string;
+}
+
+
+
+export interface ValuesforRazorandShopfiy {
+  status: number;
+  message: string;
+  result: RazorandShiprocket[];
+}
+
+export interface RazorandShiprocket {
+  sales: number;
+  name: string;
+}

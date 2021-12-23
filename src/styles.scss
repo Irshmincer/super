@@ -5,7 +5,7 @@
 
 
 html {
-  font-family: sans-serif;
+ // font-family: 'Mulish', sans-serif;
   line-height: 1.15;
   height: 100%;
   -webkit-text-size-adjust: 100%;
@@ -15,6 +15,15 @@ html {
 * {
   box-sizing: border-box;
 }
+
+.font{
+  font-family: 'Mulish', sans-serif;
+
+}
+
+
+
+
 
 body {
   height: 100%;

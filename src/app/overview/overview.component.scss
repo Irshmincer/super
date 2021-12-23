@@ -1,256 +1,304 @@
-mat-sidenav {
-  //margin: 16px;
-  width: 200px;
-  border-right: none;
-  background: #363740;
-  color: white;
-  padding: 16px;
-  text-align: center;
-}
+// mat-grid-tile {
+//   background: lightblue;
+// }
 
-
-//
-/* Styles for wrapping the search box */
-
-.main {
-  width: 50%;
-  margin: 50px auto;
-}
-
-
-
-.has-search .form-control-feedback {
-  position: absolute;
-  z-index: 2;
+mat-grid-title{
   display: block;
-  width: 2.375rem;
-  height: 2.375rem;
-  line-height: 2.375rem;
-  text-align: center;
-  pointer-events: none;
-  color: #aaa;
-}
-
-
-//
-
-.header{
-  
-  position: relative;
-  top: 30px;
-  left: 51px;
-
-}
-
-mat-sidenav-container {
-  height: calc(100vh - 65px);
-}
-
-.container {
-  margin-left: 15px;
-}
-mat-toolbar {
-  background: white;
-  color: black;
-  font-family: Mulish;
-  font-style: ExtraBold;
-  font-size: 22px;
-  line-height: 28px;
-  line-height: 100%;
-  align-items: Left;
-  vertical-align: Top;
-  letter-spacing: 0.4px;
-}
-
-.button {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  font-size: 16px;
-  border: none;
-  height: 56px;
-  color: #a4a6b3;
-  padding: 10px;
-  background: #363740;
-  margin: 3px 0px;
-}
-
-.active-sidenav-link {
-  background: grayscale / gray;
-
-  color: #dde2ff;
-  border-left: 4px solid #dde2ff;
-}
-
-mat-sidenav {
-  width: 255px;
-  margin-left: -16px;
-  margin-top: -12px;
-  padding-right: 0px;
-}
-
-.mat-elevation-z5 {
-  position: relative;
-  z-index: 2;
-}
-
-.shopname {
-  font-size: 36px;
-  margin-top: -7px;
-  margin-left: 20px;
-}
-
-.jpg-icon {
-  width: 36px;
-}
-
-.icon {
-  width: 30px;
-  padding-right: 10px;
-  margin-left: 23px;
 }
 
 mat-card {
-  width: 663px;
-  height: 600px;
-  border-radius: 16px;
+  width: 100%;
+  // max-height: 100%;
+  
+  background: #ffffff;
+  
 }
 
-.card3 {
+.countsalesnewcutomer{
+  margin-right: 2.5vw; margin-top: 1em;
+
+}
+
+.countsalesexitingcustomer{
+  margin-right: 5.5vw; margin-top: 1em;
+}
+
+.example-form-field{
   margin-top: 20px;
 }
 
-.card1 {
-  width: 56px;
-  height: 64px;
+mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0px 0px 16px rgba(54, 55, 64, 0.08);
+}
+.w-100 {
+  width: 100%;
 }
 
-.count {
-  display: inline-grid;
-  position: absolute;
-  margin-left: 20px;
-  margin-top: 4px;
-
-  h1 {
-    font-size: 16px;
-    letter-spacing: normal;
-    margin: 0;
-    font-weight: 600;
-    text-align: initial;
-    line-height: 30px;
-    letter-spacing: 0.3px;
-  }
-  p {
-    margin-top: 6px;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 24px;
-  }
+.mb-0 {
+  margin-bottom: 0px;
+  font-weight: 600;
+font-size: 16px;
 }
 
-.count-half {
-  display: inline-grid;
-  float: right;
-  position: relative;
-  right: 12px;
-
-  .groupicon {
-    width: 27px;
-    margin-top: 16px;
-    position: relative;
-    left: -181px;
-    top: -6px;
-  }
-
-  .count {
-    display: inline-grid;
-    position: absolute;
-    margin-left: -139px;
-    margin-top: 4px;
-
-    p{
-      position: relative;
-    left: -42px;
-    }
-  }
-}
-.example-spacer {
-  flex: 1 1 auto;
+.h-100 {
+  height: 100%;
 }
 
-input {
-  margin-right: 350px;
-  border: 1px solid;
-  background: transparent;
+.flex {
+  display: flex;
 }
 
-.salesfromnewcustomers {
-  margin-left: 34px;
-  margin-top: -33px;
-  color: #555555;
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }
 
-canvas {
-  margin-top: 50px;
+.header {
+  justify-content: space-between;
+
 }
 
-.customers {
-  margin-top: -31px;
-  margin-left: 17px;
-  color: black;
-  // width:10px;
+h1{
+  font-size: 16px;
+  font-family: "Mulish", sans-serif;
+
 }
-
-.newcustomers {
-  width: 253px;
-  height: 20px;
-
+.countsales{
+  // font-weight: 800;
+  font-size: 16px;
+  color: #252733;
+  
   font-style: normal;
+font-weight: bold;
+ 
+
+}
+.icon{
+  width: 28px;
+}
+
+
+.newcount{
+  margin-right: 2.5vw; margin-top: 1em;
+
+}
+
+.count1{
+  font-family: "Mulish", sans-serif;
+  margin-top: -12px;
+  font-weight: 800;
+font-size: 24px;
+}
+
+.total-sales {
+  align-items: center;
+  margin-right: 1em;
+}
+
+.mychart {
+  padding: 1em 2em;
+ 
+}
+
+
+  .canvas {
+    height: 236px;
+    display: block;
+    width: 266px;
+  }
+
+
+.shiprocket{
+  width:4em;
+}
+.formfield{
+
+  margin-top: 20px;
+}
+
+
+
+.matcard2{
+  height:  555px;
+}
+.matcard1{
+  height:  555px;
+}
+
+
+.height{
+  margin-top: -2rem;
+ // margin-top: -10em;
+}
+.number{
+  font-weight: 800;
+font-size: 24px;
+}
+
+.md{
+  margin-top: 0.9em
+}
+
+
+.countname{
   font-weight: 600;
   font-size: 16px;
-  line-height: 20px;
-  /* identical to box height, or 125% */
-
-  letter-spacing: 0.2px;
-
   color: #555555;
+  font-family: "Mulish", sans-serif;
+
+
 }
 
-.exiting {
-  margin-top: -5px;
+.heading{
+  margin-top:30px; margin-left:20px;
+  font-weight: bold;
+  font-family: "Mulish", sans-serif;
+
+font-size: 24px;
 }
 
-p {
-  font-family: Muli;
-  font-size: 20px;
+.newcustomer{
+  margin-top: -11px;
 }
 
-.grid-half {
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-column-gap: 30px;
-  margin-top: 45px;
-  margin-left: 40px;
-}
 
-// .salesnewcustomer {
-//   position: relative;
-//   margin-left: 550px;
-//   margin-top: -41px;
+
+
+// @media (min-width: 600px) and (max-width: 850px) {
+//   .newcount{
+//     margin-right: 5.5vw; 
+//     margin-top: 1em;
+//   }
 // }
 
-.newone{
-  margin-top: 31px;
-  
-    
-    p{
-      position: relative;
-      float: right;
-      top: -43px;
-      left: -114px;
-    }
-  
+
+
+
+@media  (min-width: 300px) and (max-width: 959.98px) {
+
+  h1 {
+    font-size: 12px;
+    font-family: "Mulish", sans-serif;
+
+  }
+
+  p{
+    font-size: 12px;
+
+  }
+
+  h2{
+    font-size:12px
+  }
+
+  .matcard1{
+    margin-top: -12em;
+    height:555px;
+   
+
+  }
+
+  .newcount{
+    margin-right: 9.5vw; 
+    margin-top: 1em;
+  }
+
+
+  .number{
+    font-size: 16px;
+  }
+
+  .count1{
+    font-size: 16px;
+  }
+
+  .h-100 {
+    height: 50%;
+  }
+
+  .countsales{
+    font-size: 12px;
+  }
+
+  .shopfiy{
+    width: 45px;
+  }
+
+  .shiprocket{
+    width: 45px;
+  }
+
+  .countname{
+    font-size: 12px;
+  }
+
+  .matcard2{
+    margin-top: -10em;
+    height: 400px;
+  }
+
+  .mobileversion{
+    height: 0;
+  }
+
+  .mobileversion2{
+    margin-top: -5em;
+  }
+
+  .mobileversion3{
+    margin-top: -18em;
+  }
+  .md{
+    margin-top: 1.2em;
+  }
+
+  .countsalesnewcutomer{
+    margin-right: 10.5vw; margin-top: 1em;
+
+  }
+
+  .countsalesexitingcustomer{
+    margin-right: 10.5vw; margin-top: 1em;
+  }
   
 }
 
+@media  (min-width:960px) and (max-width:1280px){
+    .mobileversion{
+
+      height:0;
+    }
+
+    .mobileversion2{
+      margin-top: 0;
+    }
+
+    .md2{
+      margin-top: -2em;
+    }
+  
+
+    .countsalesnewcutomer{
+      margin-right: 5.5vw; margin-top: 1em;
+
+    }
+
+
+}
+
+@media(min-width:1282px){
+  .countsalesnewcutomer{
+    margin-right: 7vw; margin-top: 1em;
+
+  }
+
+  .countsalesexitingcustomer{
+    margin-right: 7vw; margin-top: 1em;
+  }
+
+  .matcard1{
+    height:555px;
+  }
+
+}
+  

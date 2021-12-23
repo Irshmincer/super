@@ -1,81 +1,137 @@
-<mat-toolbar class="mat-elevation-z5">
-  <mat-toolbar-row>
-    <div class="logo">
+<mat-toolbar class="mat-elevation-z8">
+  <button  mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">
+          menu
+      </mat-icon>
+      <mat-icon *ngIf="sidenav.opened" >
+          close
+      </mat-icon>
+  </button>
+  <div class="logo">
+
+    <div>
       <img
         class="jpg-icon"
         src="../../assets/application/Frame 15.jpg"
         style="max-width: 100%; min-width: 100%"
       />
     </div>
-    <span class="shopname">{{ shopname?.name }}</span>
-     <span class="example-spacer"></span> 
-     <div>
-       
-      <button mat-mini-fab  class="profile_pic">
-        {{ getSingleLetter() }}
-      </button>
-    </div> 
-  </mat-toolbar-row>
-</mat-toolbar>
+    <span class="shopname">{{ name() }}</span>
+  </div>
 
-<mat-sidenav-container>
-  <mat-sidenav mode="side" opened>
-    <a
-      
-      class="button"
+  <div fxShow.sm="true" fxShow.xs="true" fxShow="false" fxFlex fxLayoutAlign="flex-end center" style="    margin-top: 0.5em;
+  ">
+
+    <span ><mat-icon>filter_alt</mat-icon></span>
+  </div>
+
+  
+  
+
+  <div fxHide.xs fxHide.sm class="usersname" fxFlex fxLayoutAlign="flex-end center" >
+    <div style="margin-right:12px">
+
+        <input matInput placeholder="search">
+    </div>
+    <span>James Williams </span>
+  </div>
+  <div fxHide.xs fxHide.sm>
+       
+    <a mat-mini-fab  class="profile_pic">
+      {{ getSingleLetter() }}
+    </a>
+  </div> 
+</mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav"  opened  class="mat-elevation-z8" >
+      <button mat-button class="menu-button"  
       routerLink="/overview"
-      routerLinkActive="active-sidenav-link"
-    >
-      <img class="img" src="../../assets/application/overview.svg" />
-      <span class="text">Overview</span>
-  </a>
-    <a
-    
-      class="button"
+      (click)="sidenav.toggle()"
+      routerLinkActive="active-sidenav-link">
+      
+      <div class="image">
+        <img class="img" src="../../assets/application/overview.svg" />
+        <span class="text">Overview</span>
+
+      </div>
+
+      
+         
+      </button>
+
+      <button mat-button class="menu-button"  
       routerLink="/shopfiy"
-      routerLinkActive="active-sidenav-link"
-    >
-      <img class="img" src="../../assets/application/Shopify.svg" />
-      <span class="shopfiy">Shopfiy</span>
-</a>
-    <a
-   
-      class="button"
+      (click)="sidenav.toggle()"
+      routerLinkActive="active-sidenav-link">
+
+      <div class="image">
+
+        <img class="img" src="../../assets/application/Shopify.svg" />
+        <span class="shopfiy">Shopfiy</span>
+      </div>
+         
+      </button>
+
+      <button mat-button class="menu-button"  
       routerLink="/amazon"
-      routerLinkActive="active-sidenav-link"
-    >
-      <img class="img" src="../../assets/application/amazon.svg" />
-      <span class="text">Amazon</span>
-</a>
-    <a
-    
-      class="button"
+      (click)="sidenav.toggle()"
+      routerLinkActive="active-sidenav-link">
+
+      <div class="image">
+
+        <img class="img" src="../../assets/application/amazon.svg" />
+        <span class="text">Amazon</span>
+      </div>
+         
+      </button>
+
+      <button mat-button class="menu-button"  
       routerLink="/facebook"
-      routerLinkActive="active-sidenav-link"
-    >
-      <img  class="img" src="../../assets/application/Facebook.svg" />
-      <span class="facebook">Facebook</span>
-</a>
-    <a
-    
-      class="button"
+      (click)="sidenav.toggle()"
+      routerLinkActive="active-sidenav-link">
+
+      <div class="image">
+
+        <img  class="img" src="../../assets/application/Facebook.svg" />
+        <span class="facebook">Facebook</span>
+      </div>
+         
+      </button>
+
+      <button mat-button class="menu-button"  
       routerLink="/razorpay"
-      routerLinkActive="active-sidenav-link"
-    >
-      <img class="razorimg" src="../../assets/application/Razorpay.svg" />
-      <span class="razor">Razor</span>
-</a>
-    <a
-    
-      class="button"
+      (click)="sidenav.toggle()"
+
+      routerLinkActive="active-sidenav-link"  >
+
+      <div class="image">
+
+        <img class="img" src="../../assets/application/Razorpay.svg" />
+        <span class="razor">Razor</span>
+      </div>
+         
+      </button>
+
+
+      <button mat-button class="menu-button"  
       routerLink="/shiprocket"
-      routerLinkActive="active-sidenav-link"
-    >
-      <img  class="img" src="../../assets/application/Shiprocket.svg" />
-      <span class="shiprocket">ShipRocket</span>
-</a>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+      (click)="sidenav.toggle()"
+      routerLinkActive="active-sidenav-link">
+      <div class="image">
+
+        <img  class="img" src="../../assets/application/Shiprocket.svg" />
+        <span class="shiprocket">ShipRocket</span>
+      </div>
+      </button>
+    
+    
+    </mat-sidenav>
+      <mat-sidenav-content>
+          <div >
+            <router-outlet></router-outlet>
+          </div>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
+
+

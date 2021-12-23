@@ -1,122 +1,305 @@
 
+<div >
+  <div style="display: flex; gap: 20px;">
 
-<div class="header">
-  <h1>Overview</h1>
+    <h1 fxHide.xs fxHide.sm class="heading">
+      Overview
+    </h1>
   
+  
+
+    <mat-form-field class="formfield" appearance="outline" >
+      <mat-label>Enter a date range</mat-label>
+      <mat-datepicker-toggle matPrefix [for]="rangePicker"></mat-datepicker-toggle>
+      <mat-date-range-input [formGroup]="formControls.rangeGroup" [rangePicker]="rangePicker">
+        <input matStartDate formControlName="start" placeholder="Start date" />
+      <input matEndDate formControlName="end" placeholder="End date" />
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="rangePicker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+  <mat-date-range-picker #rangePicker>
+    <mat-date-range-picker-actions>
+      <button mat-button matDateRangePickerCancel>Cancel</button>
+      <button mat-raised-button color="primary" matDateRangePickerApply (click)="onsubmit()">Apply</button>
+    </mat-date-range-picker-actions>
+  </mat-date-range-picker>
+        </mat-form-field>
+  </div>
+  
+
 </div>
+  
 
 
-    <div class="grid-half">
-      <mat-card class="mat-card">
-        <div class="container">
-          <img class="card1" src="../../assets/application/card1_shopify.svg" />
+<mat-grid-list 
 
-          <div class="count">
-            <h1>{{ sales?.name }}</h1>
-            <p>$ {{ sales?.sales }}</p>
-          </div>
+  [cols]="cols"
+  rowHeight="600px"
+  gutterSize="15px"
+  style="padding: 10px; margin-left: 20px; margin-right: 20px;"
+>
 
-          <div class="count-half">
-            <img class="groupicon" src="../../assets/application/group.svg" />
-            <div class="count">
 
-              <h1 >{{ newcustomer?.name }}</h1>
-              <p>
-                <b>
-                  {{ newcustomer?.sales }}
-                </b>
-              </p>
-
-            </div>
-          </div>
-
-          <div class="newone">
-            <div class="new">
-              <img
-              class="groupicon"
-              src="../../assets/application/new.svg"
-            />
-              <h2 class="salesfromnewcustomers">
-               {{ salesfromnewcustomer?.name }}
-              </h2>
-              <p >
-              <b>   $ {{ salesfromnewcustomer?.sales }} </b> 
-              </p>
-            </div>
-            <div class="new">
-              <img
-                  class="groupicon"
-                  src="../../assets/application/exiting.svg"
+  <mat-grid-tile class="mobileversion">
+    <div class="w-100 h-100">
+      
+      <mat-card class="matcard1 " >
+        <div class="flex header" >
+          <div class="flex total-sales">
+            <ngx-skeleton-loader count="1" appearance="circle" [theme]="{ width: '60px', height: '60px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+            <div  *ngIf="loaded1" class="stat-icon " style="padding: 0 0.5em 0 0">
+                <img 
+                  class="shopfiy"
+                  src="../../assets/application/card1_shopify.svg"
                 />
-              <h2 class="salesfromnewcustomers">
+
+            
+            </div>
+            
+            <ngx-skeleton-loader count="1"  [theme]="{ width: '200px',
+            'border-radius': '0',
+            height: '15px',
+            'margin-bottom': '20px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+            <div class="flex-col count" style="margin-top: 1em" *ngIf="loaded1">
+              <h1 class="mb-0">
+                {{ sales?.name }}
+              </h1>
+            
+              <div *ngIf="loaded1">
+
+                <h3 class="number">₹ {{ sales?.sales | number : '1.0-0' }}</h3>
+              </div>
+              
+            </div>
+          </div>
+          <div class="flex-col newcustomers">
+            <ngx-skeleton-loader count="1" appearance="circle" [theme]="{ width: '60px', height: '60px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+
+            <div class="flex info" *ngIf="loaded1">
+              <img
+                class="groupicon"
+                style="padding: 0 0.5em 0 0;width: 2em;"
+                src="../../assets/application/group.svg"
+              />
+              <div>
+
+                <h1  class="md">
+                  {{ NewCustomer?.name }}
+                </h1>
+              </div>
+            </div>
+
+            <ngx-skeleton-loader count="1"  [theme]="{ width: '100px',
+            'border-radius': '0',
+            height: '15px',
+            'margin-bottom': '20px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+           <div class="newcustomer" *ngIf="loaded1">
+
+             <span  class="count1">
+               {{ NewCustomer?.totalcount  | number : '1.0-0'}}
+             </span>
+           </div>
+           
+          </div>
+        </div>
+
+        <div class="newone">
+          <div class="flex" style="justify-content: space-between">
+            
+            <ngx-skeleton-loader count="1"  [theme]="{ width: '300px',
+            'border-radius': '0',
+            height: '15px',
+            'margin-bottom': '20px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+            <div class="flex new" *ngIf="loaded1">
+            
+
+                 <img fxHide.xs fxHide.sm  hide-xs class="icon" src="../../assets/application/new.svg" />
+           
+              <h2  class="countname" style="margin: 0.6em 0.5em">
+                {{ salesfromnewcustomer?.name }}
+              </h2>
+            </div>
+            <ngx-skeleton-loader count="1"  [theme]="{ width: '100px',
+            'border-radius': '0',
+            height: '15px',
+            'margin-bottom': '20px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+            <div  class="countsalesnewcutomer" *ngIf="loaded1" >
+              <p class="countsales">₹ {{ salesfromnewcustomer?.sales | number : '1.0-0' }}</p>
+            </div>
+          </div>
+
+          <div class="flex" style="justify-content: space-between">
+            <ngx-skeleton-loader count="1"  [theme]="{ width: '300px',
+            'border-radius': '0',
+            height: '15px',
+            'margin-bottom': '20px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+            <div class="flex new" *ngIf="loaded1">
+              <img  fxHide.xs fxHide.sm class="icon" src="../../assets/application/exiting.svg" />
+              <h2 class="countname" style="margin: 0.8em 0.5em ">
                 {{ salesfromexcitingcustomer?.name }}
               </h2>
-              <p >
-               <b>  $ {{ salesfromexcitingcustomer?.sales }} </b> 
-              </p>
+            </div>
+            <ngx-skeleton-loader count="1"  [theme]="{ width: '100px',
+            'border-radius': '0',
+            height: '15px',
+            'margin-bottom': '20px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+            <div class="countsalesexitingcustomer"  *ngIf="loaded1">
+              <p class="countsales">₹ {{ salesfromexcitingcustomer?.sales | number : '1.0-0' }}</p>
+            </div>
+          </div>
+        </div>
+        <ngx-skeleton-loader count="1"  [theme]="{ width: '500px',
+        'border-radius': '0',
+        height: '300px',
+        'margin-bottom': '20px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+        <div class="mychart"  *ngIf="loaded1" >
+          <canvas
+          style="height:300px;"
+            *ngIf="loaded"
+            baseChart
+            [data]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="chartColors"
+          >
+          </canvas>
+        </div>
+
+
+
+      </mat-card>
+    </div>
+  </mat-grid-tile>
+
+
+  <mat-grid-tile class="mobileversion2 mobileversion ">
+
+    <div class="w-100 h-100">
+      <mat-card class="matcard2">
+        <div class="flex header">
+          <div class="flex total-sales">
+            <ngx-skeleton-loader count="1" appearance="circle" [theme]="{ width: '60px', height: '60px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+
+            <div class="stat-icon" style="padding: 0 0.5em 0 0" *ngIf="loaded1">
+              <img 
+              class="shopfiy"
+              src="../../assets/application/card1_shopify.svg"
+            />
+            </div>
+            <ngx-skeleton-loader count="1"  [theme]="{ width: '200px',
+            'border-radius': '0',
+            height: '15px',
+            'margin-bottom': '20px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+            <div class="flex-col count" style="margin-top: 1em" *ngIf="loaded1">
+              <h1 class="mb-0">
+                {{ sales?.name }}
+              </h1>
+              <h3 class="number" >₹ {{  sales?.sales | number : '1.0-0'}}</h3>
             </div>
           </div>
 
-          <div class="mychart" >
-            <canvas width="3" height="1"
-              *ngIf="loaded"
-              baseChart
-              [data]="barChartData"
-              [labels]="barChartLabels"
-              [options]="barChartOptions"
-              [legend]="barChartLegend"
-              [chartType]="barChartType"
-              [colors]="chartColors"
-            >
-            </canvas>
-          </div>
+
+         
+
 
         </div>
-      </mat-card>
 
-      <mat-card>
-        <div>
-          <img class="card1" src="../../assets/application/card2_amazon.svg" />
+        <ngx-skeleton-loader count="1"  [theme]="{ width: '500px',
+        'border-radius': '0',
+        height: '300px',
+        'margin-bottom': '20px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
 
-          <div class="count">
-            <h1>Amazon</h1>
-            <p>Amazon count</p>
-          </div>
+  <div class="chart" *ngIf="loaded">
+    <canvas baseChart   style="height:300px;"
+      baseChart
+      [data]="lineChart.data"
+      [labels]="lineChart.labels"
+      [chartType]="lineChart.type"
+      [options]="lineChart.options"
+    >
+    </canvas>
         </div>
-      </mat-card>
+      
 
-      <!--  <div class="pad-10"></div> -->
 
-      <mat-card class="card3">
-        <div>
-          <img
-            class="card1"
-            src="../../assets/application/card3_facebook.svg"
-          />
-
-          <div class="count">
-            <h1>facebook</h1>
-            <p>facebook count</p>
-          </div>
-        </div>
-      </mat-card>
-
-      <mat-card class="card3">
-        <div>
-          <img class="card1" src="../../assets/application/card4_razor.svg" />
-
-          <div class="count">
-            <h1>razor</h1>
-            <p>$ {{razorpay?.total_razorpay_payment}}</p>
-          </div>
-        </div>
+      
       </mat-card>
     </div>
-
-<!--     
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
+  </mat-grid-tile>
 
 
+  <mat-grid-tile class="mobileversion2 mobileversion mobileversion3 ">
+
+    <div class="w-100 h-100">
+      <mat-card class="matcard2">
+        <div class="flex header">
+          <div class="flex total-sales">
+            <ngx-skeleton-loader count="1" appearance="circle" [theme]="{ width: '60px', height: '60px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+
+            <div class="stat-icon" style="padding: 0 0.5em 0 0" *ngIf="loaded1">
+              <img
+                class="shopfiy"
+                src="../../assets/application/card4_razor.svg"
+              />
+            </div>
+            <ngx-skeleton-loader count="1"  [theme]="{ width: '200px',
+            'border-radius': '0',
+            height: '15px',
+            'margin-bottom': '20px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+            <div class="flex-col count" style="margin-top: 1em" *ngIf="loaded1">
+              <h1 class="mb-0">
+                {{ sales?.name }}
+              </h1>
+              <h3 class="number" >₹ {{ razorpay?.total_razorpay_payment | number : '1.0-0' }}</h3>
+            </div>
+          </div>
+          <div class="flex total-sales">
+            <ngx-skeleton-loader count="1" appearance="circle" [theme]="{ width: '60px', height: '60px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+
+            <div class="stat-icon" style="padding: 0 0.5em 0 0" *ngIf="loaded1">
+              <img
+                class="shiprocket"
+                src="../../assets/application/1.svg.jpg"
+              />
+            </div>
+            <ngx-skeleton-loader count="1"  [theme]="{ width: '200px',
+            'border-radius': '0',
+            height: '15px',
+            'margin-bottom': '20px' }" *ngIf="!loaded1"></ngx-skeleton-loader>
+            <div class="flex-col count" style="margin-top: 1em" *ngIf="loaded1">
+              <h1 class="mb-0">
+                {{ sales?.name }}
+              </h1>
+              <h3 class="number" >₹ {{ shiprocketcount?.total_amount | number : '1.0-0' }}</h3>
+            </div>
+          </div>
 
 
+
+
+         
+        </div>
+        <div class="mychart"  *ngIf="loaded1" >
+          <canvas
+          style="height:300px;"
+            *ngIf="loaded"
+            baseChart
+            [data]="barChartData2"
+            [labels]="barChartLabels2"
+            [options]="barChartOptions2"
+            [legend]="barChartLegend2"
+            [chartType]="barChartType2"
+            [colors]="chartColors"
+          >
+          </canvas>
+        </div>
+
+      
+      </mat-card>
+    </div>
+  </mat-grid-tile>
+  
+</mat-grid-list>

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './home/home.module';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -21,7 +22,8 @@ import { HomeModule } from './home/home.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HomeModule
+    HomeModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
