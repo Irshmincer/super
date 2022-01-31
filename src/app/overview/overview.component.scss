@@ -14,6 +14,8 @@ mat-card {
   
 }
 
+
+
 .countsalesnewcutomer{
   margin-right: 2.5vw; margin-top: 1em;
 
@@ -97,6 +99,7 @@ font-size: 24px;
 
 .mychart {
   padding: 1em 2em;
+  margin-top: 1em;
  
 }
 
@@ -123,6 +126,10 @@ font-size: 24px;
 }
 .matcard1{
   height:  555px;
+}
+.matcard3{
+  width: 100%;
+   max-height: 100%;
 }
 
 
@@ -164,6 +171,9 @@ font-size: 24px;
 
 
 
+
+
+
 // @media (min-width: 600px) and (max-width: 850px) {
 //   .newcount{
 //     margin-right: 5.5vw; 
@@ -176,6 +186,10 @@ font-size: 24px;
 
 @media  (min-width: 300px) and (max-width: 959.98px) {
 
+
+  .linechart{
+    margin-top: -1em;
+}
   h1 {
     font-size: 12px;
     font-family: "Mulish", sans-serif;
@@ -193,6 +207,21 @@ font-size: 24px;
 
   .matcard1{
     margin-top: -12em;
+    height:555px;
+   
+
+  }
+
+
+  .mychart {
+    padding: 1em 2em;
+    margin-top: 1em;
+   
+  }
+  
+
+  .matcard3{
+    margin-top: -16em;
     height:555px;
    
 
@@ -234,7 +263,7 @@ font-size: 24px;
 
   .matcard2{
     margin-top: -10em;
-    height: 400px;
+    height: 458px;
   }
 
   .mobileversion{
@@ -246,7 +275,8 @@ font-size: 24px;
   }
 
   .mobileversion3{
-    margin-top: -18em;
+    margin-top: -12em;
+    
   }
   .md{
     margin-top: 1.2em;
@@ -276,6 +306,8 @@ font-size: 24px;
     .md2{
       margin-top: -2em;
     }
+
+    
   
 
     .countsalesnewcutomer{
