@@ -12,6 +12,7 @@ import * as moment from 'moment';
 import { UserData } from '../login/login.model';
 import { LoginService } from '../login/login.service';
 import {
+  amazon,
   customer,
   DashboardChart,
   RazorandShiprocket,
@@ -34,6 +35,8 @@ export class OverviewComponent implements OnInit {
   weekday: any;
   totalvalue: number;
   today: any;
+
+  valueforAmazon: amazon;
   formControls = {
     rangeGroup: this.fb.group({
       start: new FormControl(this.addDays(7)),
@@ -272,16 +275,15 @@ export class OverviewComponent implements OnInit {
       vendor_name: this.login.user_profile.name,
     };
     console.log(form);
+
     if (form) {
-      setInterval(() => {
-        this.loaded1 = true;
-      }, 3000);
       this.salescount();
       this.customer();
       this.razor();
       this.loadStats();
       this.RazorandShiprocket();
       this.shiprocket();
+      console.log(this.amazon())
     }
   }
   customer() {
@@ -368,9 +370,8 @@ export class OverviewComponent implements OnInit {
           {
             type: 'time',
             time: {
-              displayFormats: {
-                quarter: 'MMM YYYY',
-              },
+                unit: 'day',
+            
             },
             ticks: {
               autoSkip: true,
@@ -451,5 +452,23 @@ export class OverviewComponent implements OnInit {
       this.razorvalue = data.result[0];
       this.ship = data.result[1];
     });
+  }
+
+
+  amazon(){
+    let start = this.formControls.rangeGroup.value.start;
+    start = moment(start).format('YYYY-MM-DD');
+    let end = this.formControls.rangeGroup.value.end;
+    end = moment(end).format('YYYY-MM-DD');
+    const form = {
+      from: start,
+      to: end,
+     
+    };
+
+    this.service.ValuesforAmazon(form).subscribe(data => {
+      this.valueforAmazon = data
+    })
+
   }
 }

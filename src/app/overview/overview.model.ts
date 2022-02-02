@@ -82,3 +82,10 @@ export interface RazorandShiprocket {
   sales: number;
   name: string;
 }
+
+
+//amazon 
+
+export interface amazon {
+  total_amount: number;
+}

@@ -365,6 +365,49 @@
     </div>
   </mat-grid-tile>
 
+  <mat-grid-tile class="mobileversion2 mobileversion ">
+    <div class="w-100 h-100">
+      <mat-card class="matcard2">
+        <div class="flex header">
+          <div class="flex total-sales">
+            <ngx-skeleton-loader
+              count="1"
+              appearance="circle"
+              [theme]="{ width: '60px', height: '60px' }"
+              *ngIf="!loaded1"
+            ></ngx-skeleton-loader>
+            <div class="stat-icon" style="padding: 0 0.5em 0 0" *ngIf="loaded1">
+              <img
+                class="shopfiy"
+                src="../../assets/application/amazon_long_logo.svg"
+              />
+            </div>
+            <ngx-skeleton-loader
+              count="1"
+              [theme]="{
+                width: '200px',
+                'border-radius': '0',
+                height: '15px',
+                'margin-bottom': '20px'
+              }"
+              *ngIf="!loaded1"
+            ></ngx-skeleton-loader>
+            <div class="flex-col count" style="margin-top: 1em" *ngIf="loaded1">
+              <h1 class="mb-0">
+                {{ sales?.name }}
+              </h1>
+              <h3 class="number">
+                ₹ {{ valueforAmazon?.total_amount | number: "1.0-0" }}
+              </h3>
+            </div>
+          </div>
+         
+        </div>
+       
+      </mat-card>
+    </div>
+  </mat-grid-tile>
+
  
 </mat-grid-list>
 
@@ -413,9 +456,9 @@
       <ngx-skeleton-loader
         count="1"
         [theme]="{
-          width: '500px',
+          width: '1200px',
           'border-radius': '0',
-          height: '300px',
+          height: '500px',
           'margin-bottom': '20px'
         }"
         *ngIf="!loaded1"
