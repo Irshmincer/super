@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { amazon, NewCustomer, razorPayCount, salesCount, salesCounts, shipRocketCount, TotalSaleShopify, ValuesforRazorandShopfiy } from './overview.model';
+import { amazon, AmazonandFacebookTotalSales, facebook, NewCustomer, razorPayCount, salesCount, salesCounts, shipRocketCount, TotalSaleShopify, ValuesforRazorandShopfiy } from './overview.model';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +42,15 @@ export class OverviewService {
     return this.http.post<amazon>(`${this.baseUrl}superdash_app/api/v1/amazon`, name );
   }
 
+
+  
+  ValuesforFacebook(name:any): Observable<facebook> {
+    return this.http.post<facebook>(`${this.baseUrl}superdash_app/api/v1/facebook`, name );
+  }
+
+  ValuesforAmazonandFacebook(name:any): Observable<AmazonandFacebookTotalSales> {
+    return this.http.post<AmazonandFacebookTotalSales>(`${this.baseUrl}superdash_app/api/v1/amazonandfacebook`, name );
+  }
 
   
   

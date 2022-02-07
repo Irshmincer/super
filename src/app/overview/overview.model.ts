@@ -1,6 +1,8 @@
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 
+
+
 export interface DashboardChart {
   type: ChartType;
   labels: Label[];
@@ -9,9 +11,7 @@ export interface DashboardChart {
   legend: true;
   colors?: [{ backgroundColor: ['#0088C7'] }];
   options: ChartOptions;
-
 }
-
 
 export interface NewCustomer {
   status: number;
@@ -23,7 +23,6 @@ export interface customer {
   totalcount: number;
   name: string;
 }
-
 
 export interface shipRocketCount {
   status: number;
@@ -44,8 +43,6 @@ export interface razorpay {
   total_razorpay_payment: number;
 }
 
-
-
 export interface salesCounts {
   status: number;
   message: string;
@@ -56,8 +53,6 @@ export interface salesCount {
   sales: number;
   name: string;
 }
-
-
 
 export interface TotalSaleShopify {
   status: number;
@@ -70,8 +65,6 @@ export interface totalsale {
   order_date: string;
 }
 
-
-
 export interface ValuesforRazorandShopfiy {
   status: number;
   message: string;
@@ -83,9 +76,27 @@ export interface RazorandShiprocket {
   name: string;
 }
 
-
-//amazon 
+//amazon
 
 export interface amazon {
   total_amount: number;
+}
+
+//facebook
+
+export interface facebook {
+  total_amount: string;
+}
+
+//amazonandfacebok
+
+export interface AmazonandFacebookTotalSales {
+  status: number;
+  message: string;
+  result: AmazonandFacebookResult[];
+}
+
+export interface AmazonandFacebookResult {
+  sales: number | string;
+  name: string;
 }

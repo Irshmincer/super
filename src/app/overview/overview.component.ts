@@ -13,8 +13,10 @@ import { UserData } from '../login/login.model';
 import { LoginService } from '../login/login.service';
 import {
   amazon,
+  AmazonandFacebookResult,
   customer,
   DashboardChart,
+  facebook,
   RazorandShiprocket,
   razorpay,
   salesCount,
@@ -25,6 +27,7 @@ import { OverviewService } from './overview.service';
 import { Color, Label } from 'ng2-charts';
 import { tick } from '@angular/core/testing';
 import { ThrowStmt } from '@angular/compiler';
+import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexMarkers, ApexTitleSubtitle, ApexFill, ApexYAxis, ApexXAxis, ApexTooltip, ApexNoData } from 'ng-apexcharts';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -35,8 +38,12 @@ export class OverviewComponent implements OnInit {
   weekday: any;
   totalvalue: number;
   today: any;
+  ValueforAmazonandFacebook : AmazonandFacebookResult[]
+  
+  valueforAmazon: AmazonandFacebookResult;
+  valueforFacebook : AmazonandFacebookResult;
 
-  valueforAmazon: amazon;
+
   formControls = {
     rangeGroup: this.fb.group({
       start: new FormControl(this.addDays(7)),
@@ -160,6 +167,56 @@ export class OverviewComponent implements OnInit {
   e: number;
   list: number[];
   ///
+
+
+  //barchart 3 
+
+  barChartLabels3: any[] = [];
+  barChartType3: ChartType = 'bar';
+  barChartLegend3: boolean = true;
+  barChartData3: any[] = [{ barThickness: 30 }];
+  barChartOptions3: ChartOptions = {
+    maintainAspectRatio: false,
+    responsive: true,
+    legend: {
+      display: false,
+    },
+    scales: {
+      yAxes: [
+        {
+          gridLines: {
+            lineWidth: 0,
+          },
+          ticks: {
+            fontFamily: 'Mulish',
+            beginAtZero: true,
+            callback: function (value: number, index, values) {
+              return value % 2 === 0
+                ? '$ ' + Intl.NumberFormat().format(value / 1000) + 'K'
+                : '';
+            },
+          },
+        },
+      ],
+      xAxes: [
+        {
+          gridLines: {
+            lineWidth: 0,
+          },
+          ticks: {
+            display: true,
+            fontFamily: 'Mulish',
+            beginAtZero: true,
+            fontSize: 10,
+            minRotation: 0,
+            maxRotation: 0,
+          },
+        },
+      ],
+    },
+  };
+
+  //
   chartColors: Array<any> = [
     {
       // all colors in order
@@ -167,37 +224,37 @@ export class OverviewComponent implements OnInit {
     },
   ];
   //line chart
-  lineChartData: any[];
-  lineChartLabels: any[];
-  lineChartOptions: ChartOptions = {
-    scales: {
-      yAxes: [
-        {
-          display: false,
-        },
-      ],
-      xAxes: [
-        {
-          ticks: {
-            autoSkip: true,
-          },
-          gridLines: {
-            drawOnChartArea: false,
-            lineWidth: 0,
-          },
-        },
-      ],
-    },
-  };
-  public lineChartColors: Color[] = [
-    {
-      borderColor: '#80aaff',
-      backgroundColor: 'rgb(128, 170, 255)',
-    },
-  ];
-  public lineChartLegend = true;
-  public lineChartType: ChartType = 'line';
-  public lineChartPlugins = [];
+  // lineChartData: any[];
+  // lineChartLabels: any[];
+  // lineChartOptions: ChartOptions = {
+  //   scales: {
+  //     yAxes: [
+  //       {
+  //         display: false,
+  //       },
+  //     ],
+  //     xAxes: [
+  //       {
+  //         ticks: {
+  //           autoSkip: true,
+  //         },
+  //         gridLines: {
+  //           drawOnChartArea: false,
+  //           lineWidth: 0,
+  //         },
+  //       },
+  //     ],
+  //   },
+  // };
+  // public lineChartColors: Color[] = [
+  //   {
+  //     borderColor: '#80aaff',
+  //     backgroundColor: 'rgb(128, 170, 255)',
+  //   },
+  // ];
+  // public lineChartLegend = true;
+  // public lineChartType: ChartType = 'line';
+  // public lineChartPlugins = [];
   //line chart ends
   constructor(
     private login: LoginService,
@@ -205,6 +262,20 @@ export class OverviewComponent implements OnInit {
     private fb: FormBuilder,
     private breakpointObserver: BreakpointObserver
   ) {}
+
+
+  public series!: ApexAxisChartSeries;
+  public apexlinechart!: ApexChart;
+  public dataLabels!: ApexDataLabels;
+  public markers!: ApexMarkers;
+  public title!: ApexTitleSubtitle;
+  public fill!: ApexFill;
+  public yaxis!: ApexYAxis;
+  public xaxis!: ApexXAxis;
+  public tooltip!: ApexTooltip;
+  public nodata!: ApexNoData;
+  lineChartApex= false
+
   ngOnInit(): void {
     setInterval(() => {
       this.loaded1 = true;
@@ -277,13 +348,19 @@ export class OverviewComponent implements OnInit {
     console.log(form);
 
     if (form) {
+      this.loaded1 = false;
+
+      setTimeout(() => {
+        this.loaded1 = true;
+      }, 2000);
       this.salescount();
       this.customer();
       this.razor();
       this.loadStats();
       this.RazorandShiprocket();
       this.shiprocket();
-      console.log(this.amazon())
+  
+      this.valueAmazonandFacebook();
     }
   }
   customer() {
@@ -330,6 +407,9 @@ export class OverviewComponent implements OnInit {
       vendor_name: this.login.user_profile.name,
     };
     this.service.razorPay(form).subscribe((data) => {
+      if(this.name && this.NewCustomer ){
+        this.loaded1= true
+      }
       this.razorpay = data.data[0];
     });
   }
@@ -337,58 +417,58 @@ export class OverviewComponent implements OnInit {
     const shopname = this.login.user_profile;
     this.shopname = shopname;
   }
-  lineChart: DashboardChart = {
-    type: 'line',
-    labels: [],
-    data: {
-      dataset: [
-        {
-          pointRadius: 0,
-        },
-      ],
-    },
-    legend: true,
-    colors: [
-      {
-        backgroundColor: ['#0088C7'],
-      },
-    ],
-    options: {
-      plugins: {},
-      elements: {
-        point: {
-          radius: 0,
-        },
-      },
-      scales: {
-        yAxes: [
-          {
-            display: false,
-          },
-        ],
-        xAxes: [
-          {
-            type: 'time',
-            time: {
-                unit: 'day',
+  // lineChart: DashboardChart = {
+  //   type: 'line',
+  //   labels: [],
+  //   data: {
+  //     dataset: [
+  //       {
+  //         pointRadius: 0,
+  //       },
+  //     ],
+  //   },
+  //   legend: true,
+  //   colors: [
+  //     {
+  //       backgroundColor: ['#0088C7'],
+  //     },
+  //   ],
+  //   options: {
+  //     plugins: {},
+  //     elements: {
+  //       point: {
+  //         radius: 0,
+  //       },
+  //     },
+  //     scales: {
+  //       yAxes: [
+  //         {
+  //           display: false,
+  //         },
+  //       ],
+  //       xAxes: [
+  //         {
+  //           type: 'time',
+  //           time: {
+  //               unit: 'day',
             
-            },
-            ticks: {
-              autoSkip: true,
-              maxTicksLimit: 12,
-            },
-            gridLines: {
-              drawOnChartArea: false,
-            },
-          },
-        ],
-      },
-      responsive: true,
-      legend: {
-        display: false,
-      },
-    },
-  };
+  //           },
+  //           ticks: {
+  //             autoSkip: true,
+  //             maxTicksLimit: 12,
+  //           },
+  //           gridLines: {
+  //             drawOnChartArea: false,
+  //           },
+  //         },
+  //       ],
+  //     },
+  //     responsive: true,
+  //     legend: {
+  //       display: false,
+  //     },
+  //   },
+  // };
   loadStats() {
     let start = this.formControls.rangeGroup.value.start;
     start = moment(start).format('YYYY-MM-DD');
@@ -402,9 +482,13 @@ export class OverviewComponent implements OnInit {
     // Customer stats
     this.service.TotalSalesShopfiy(form).subscribe((data) => {
       console.log(data);
-      this.loaded = true;
-      this.lineChart.data = data.data.map((x) => x.totalsales);
-      this.lineChart.labels = data.data.map((x) => x.order_date);
+      const x = data.data
+      console.log(x)
+      if(x)
+      console.log("424")
+      this.intializationChartoption(x.map(x=>x.totalsales ))
+     // this.intializationChartoption(x.map(x=>Number(x.order_date)))
+
     });
   }
   salescount() {
@@ -418,7 +502,13 @@ export class OverviewComponent implements OnInit {
       vendor_name: this.login.user_profile.name,
     };
     this.service.Salescount(form).subscribe((data) => {
+      if(this.razorpay && this.NewCustomer ){
+        this.loaded1= true
+      }
+   
+      
       this.name = data.result;
+
       this.barChartLabels = this.name.map((item) => item.name);
       const labels = this.barChartLabels.map((label) => label.split(' '));
       this.barChartLabels = labels;
@@ -455,7 +545,42 @@ export class OverviewComponent implements OnInit {
   }
 
 
-  amazon(){
+  // amazon(){
+  //   let start = this.formControls.rangeGroup.value.start;
+  //   start = moment(start).format('YYYY-MM-DD');
+  //   let end = this.formControls.rangeGroup.value.end;
+  //   end = moment(end).format('YYYY-MM-DD');
+  //   const form = {
+  //     from: start,
+  //     to: end,
+     
+  //   };
+
+  //   this.service.ValuesforAmazon(form).subscribe(data => {
+  //     this.valueforAmazon = data
+  //   })
+
+  // }
+
+  // facebook(){
+  //   let start = this.formControls.rangeGroup.value.start;
+  //   start = moment(start).format('YYYY-MM-DD');
+  //   let end = this.formControls.rangeGroup.value.end;
+  //   end = moment(end).format('YYYY-MM-DD');
+  //   const form = {
+  //     from: start,
+  //     to: end,
+     
+  //   };
+
+  //   this.service.ValuesforFacebook(form).subscribe(data => {
+  //     this.valueforFacebook = data
+  //   })
+
+  // }
+
+
+  valueAmazonandFacebook(){
     let start = this.formControls.rangeGroup.value.start;
     start = moment(start).format('YYYY-MM-DD');
     let end = this.formControls.rangeGroup.value.end;
@@ -466,9 +591,98 @@ export class OverviewComponent implements OnInit {
      
     };
 
-    this.service.ValuesforAmazon(form).subscribe(data => {
-      this.valueforAmazon = data
-    })
+    this.service.ValuesforAmazonandFacebook(form).subscribe(data=>{
 
+      this.ValueforAmazonandFacebook= data.result
+      console.log(this.ValueforAmazonandFacebook)
+
+     
+      this.barChartLabels3 = this.ValueforAmazonandFacebook.map(
+        (item) => item.name
+      );
+     
+      this.barChartData3 = this.ValueforAmazonandFacebook.map((item) => item.sales);
+      this.loaded = true;
+      this.valueforAmazon = data.result[0];
+      this.valueforFacebook = data.result[1];
+
+console.log(this.valueforAmazon, this.valueforFacebook)
+
+
+
+    })
   }
+
+
+
+
+  intializationChartoption(series: number[], ):void {
+    this.lineChartApex = true
+  
+   this.title ={
+     text: 'linechart'
+   };
+
+   this.xaxis= {
+     
+    
+    tickAmount: 6,
+  labels: {
+    formatter: function(val, timestamp) {
+      return moment(timestamp).format("MMM YY");
+    }
+  }
+}
+
+    
+   
+   
+
+   this.yaxis ={
+     show: false,
+     showAlways: false
+   }
+   console.log(this.yaxis)
+   this.series = [{
+     data: series  
+   }]
+   console.log(this.series , "01")
+
+   this.dataLabels ={
+     enabled: false
+   }
+
+   this.markers ={
+     size: 0
+   }
+
+
+   this.nodata={
+     text: "nodata"
+   }
+     
+   this.apexlinechart = {
+
+     type: "area",
+     stacked: false,
+     height: 250,
+     width:650,
+     animations: {
+       enabled: false},
+    
+     zoom: {
+       type: "x",
+       enabled: false,
+       autoScaleYaxis: true
+     },
+     toolbar: {
+       show: false
+     },
+     
+   };
+ }
+
+
+
+
 }

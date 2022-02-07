@@ -20,6 +20,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    NgApexchartsModule
   ],
   exports: [OverviewComponent],
   providers: [LoginService, OverviewService, DatePipe],
