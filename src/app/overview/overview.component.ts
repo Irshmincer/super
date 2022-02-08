@@ -1,6 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 import {
   ChartType,
@@ -28,6 +28,7 @@ import { Color, Label } from 'ng2-charts';
 import { tick } from '@angular/core/testing';
 import { ThrowStmt } from '@angular/compiler';
 import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexMarkers, ApexTitleSubtitle, ApexFill, ApexYAxis, ApexXAxis, ApexTooltip, ApexNoData } from 'ng-apexcharts';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -46,8 +47,8 @@ export class OverviewComponent implements OnInit {
 
   formControls = {
     rangeGroup: this.fb.group({
-      start: new FormControl(this.addDays(7)),
-      end: new FormControl(this.Days(0)),
+      start: new FormControl(this.addDays(7), Validators.required),
+      end: new FormControl(this.Days(0),  Validators.required),
     }),
   };
   startDate = new FormControl(new Date(this.addDays(7)));
@@ -260,7 +261,8 @@ export class OverviewComponent implements OnInit {
     private login: LoginService,
     private service: OverviewService,
     private fb: FormBuilder,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver, 
+    private MatSnackBar: MatSnackBar
   ) {}
 
 
@@ -611,6 +613,10 @@ export class OverviewComponent implements OnInit {
 console.log(this.valueforAmazon, this.valueforFacebook)
 
 
+
+    }, 
+    error =>{
+      this.MatSnackBar.open("Selected only one date .Please select from and To date", 'Close', {duration: 3000})
 
     })
   }

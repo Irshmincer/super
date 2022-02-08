@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     ReactiveFormsModule,
     MatButtonModule,
     NgxSkeletonLoaderModule,
-    NgApexchartsModule
+    NgApexchartsModule, 
+    MatSnackBarModule
   ],
   exports: [OverviewComponent],
   providers: [LoginService, OverviewService, DatePipe],
