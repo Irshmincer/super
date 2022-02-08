@@ -13,7 +13,7 @@ mat-grid-title{
   margin-top: -15em;
 }
 .matcard-bar-chart3{
-  margin-top: 2em;
+  margin-top: -em;
 
 }
 
@@ -38,7 +38,7 @@ mat-card {
 }
 
 .mychart3{
-  margin-top: 6em;
+  margin-top: 0em;
   margin-left: 3em;
   width: 450px;
 }
@@ -221,6 +221,17 @@ font-size: 24px;
     width:250px
   }
 
+  .mychart2{
+    width:250px;
+    margin-left: 0em;
+    margin-top: 1em;
+  }
+
+
+  .mychart3{
+    width:250px
+  }
+
 
   .gridlist{
     padding: 10px; margin-left: 20px; margin-right: 20px;
@@ -229,7 +240,7 @@ font-size: 24px;
 
 
   .matcard-bar-chart3{
-    margin-top: 2em;
+    margin-top: -5em;
   
   }
   .linechart{
@@ -366,7 +377,7 @@ font-size: 24px;
     }
 
     .test1{
-      margin-top   :-10em;
+      margin-top   :-12em;
     }
     .test{
       margin-top: -7em;
