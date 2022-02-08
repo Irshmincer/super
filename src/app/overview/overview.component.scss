@@ -4,6 +4,17 @@
 
 mat-grid-title{
   display: block;
+  
+}
+.test{
+  margin-top: -8em;
+}
+.test1{
+  margin-top: -15em;
+}
+.matcard-bar-chart3{
+  margin-top: 2em;
+
 }
 
 mat-card {
@@ -12,6 +23,24 @@ mat-card {
   
   background: #ffffff;
   
+}
+
+.mychart1{
+  width: 450px;
+  margin-left: 0em;
+
+}
+
+.mychart2{
+  margin-top: 6em;
+  margin-left: 3em;
+  width: 450px;
+}
+
+.mychart3{
+  margin-top: 6em;
+  margin-left: 3em;
+  width: 450px;
 }
 
 
@@ -181,12 +210,28 @@ font-size: 24px;
 //   }
 // }
 
-
+.gridlist{
+  padding: 10px; margin-left: 20px; margin-right: 20px
+}
 
 
 @media  (min-width: 300px) and (max-width: 959.98px) {
 
+  .mychart1{
+    width:250px
+  }
 
+
+  .gridlist{
+    padding: 10px; margin-left: 20px; margin-right: 20px;
+    
+  }
+
+
+  .matcard-bar-chart3{
+    margin-top: 2em;
+  
+  }
   .linechart{
     margin-top: -1em;
 }
@@ -221,7 +266,7 @@ font-size: 24px;
   
 
   .matcard3{
-    margin-top: -16em;
+    margin-top: -4em;
     height:555px;
    
 
@@ -245,6 +290,11 @@ font-size: 24px;
     height: 50%;
   }
 
+
+  .h-60{
+    height: 60%
+  }
+
   .countsales{
     font-size: 12px;
   }
@@ -263,7 +313,7 @@ font-size: 24px;
 
   .matcard2{
     margin-top: -10em;
-    height: 458px;
+    height: 505px;
   }
 
   .mobileversion{
@@ -272,6 +322,14 @@ font-size: 24px;
 
   .mobileversion2{
     margin-top: -5em;
+  }
+
+  .h-83{
+    height:83%
+  }
+
+  .mobileversion4{
+    margin-top:-27em
   }
 
   .mobileversion3{
@@ -307,6 +365,13 @@ font-size: 24px;
       margin-top: -2em;
     }
 
+    .test1{
+      margin-top   :-10em;
+    }
+    .test{
+      margin-top: -7em;
+    }
+
     
   
 
@@ -331,6 +396,25 @@ font-size: 24px;
   .matcard1{
     height:555px;
   }
+
+
+  
+.mychart1{
+  width: 350px;
+  margin-left: 0em;
+
+}
+.mychart2{
+  width: 350px;
+  margin-left: 0em;
+
+}
+.mychart3{
+  width: 350px;
+  margin-left: 0em;
+
+}
+
 
 }
   

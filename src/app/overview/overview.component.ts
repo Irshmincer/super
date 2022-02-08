@@ -486,7 +486,9 @@ export class OverviewComponent implements OnInit {
       console.log(x)
       if(x)
       console.log("424")
-      this.intializationChartoption(x.map(x=>x.totalsales ))
+      const value1 = x.map(x=>x.totalsales)
+      const value2 = x.map(x=>x.order_date)
+      this.intializationChartoption(value1)
      // this.intializationChartoption(x.map(x=>Number(x.order_date)))
 
     });
@@ -616,22 +618,20 @@ console.log(this.valueforAmazon, this.valueforFacebook)
 
 
 
-  intializationChartoption(series: number[], ):void {
+  intializationChartoption(series: number[] ):void {
     this.lineChartApex = true
   
-   this.title ={
-     text: 'linechart'
-   };
 
    this.xaxis= {
      
     
     tickAmount: 6,
-  labels: {
-    formatter: function(val, timestamp) {
-      return moment(timestamp).format("MMM YY");
+    labels: {
+      formatter: function (value) {
+        return value;
+      }
     }
-  }
+
 }
 
     
@@ -644,6 +644,7 @@ console.log(this.valueforAmazon, this.valueforFacebook)
    }
    console.log(this.yaxis)
    this.series = [{
+     name: "Purchase",
      data: series  
    }]
    console.log(this.series , "01")
@@ -666,14 +667,14 @@ console.log(this.valueforAmazon, this.valueforFacebook)
      type: "area",
      stacked: false,
      height: 250,
-     width:650,
+     width:1350,
      animations: {
        enabled: false},
     
      zoom: {
        type: "x",
        enabled: false,
-       autoScaleYaxis: true
+       autoScaleYaxis: false
      },
      toolbar: {
        show: false
