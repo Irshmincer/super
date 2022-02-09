@@ -490,7 +490,7 @@ export class OverviewComponent implements OnInit {
       console.log("424")
       const value1 = x.map(x=>x.totalsales)
       const value2 = x.map(x=>x.order_date)
-      this.intializationChartoption(value1)
+      this.intializationChartoption(value1, value2)
      // this.intializationChartoption(x.map(x=>Number(x.order_date)))
 
     });
@@ -549,39 +549,7 @@ export class OverviewComponent implements OnInit {
   }
 
 
-  // amazon(){
-  //   let start = this.formControls.rangeGroup.value.start;
-  //   start = moment(start).format('YYYY-MM-DD');
-  //   let end = this.formControls.rangeGroup.value.end;
-  //   end = moment(end).format('YYYY-MM-DD');
-  //   const form = {
-  //     from: start,
-  //     to: end,
-     
-  //   };
-
-  //   this.service.ValuesforAmazon(form).subscribe(data => {
-  //     this.valueforAmazon = data
-  //   })
-
-  // }
-
-  // facebook(){
-  //   let start = this.formControls.rangeGroup.value.start;
-  //   start = moment(start).format('YYYY-MM-DD');
-  //   let end = this.formControls.rangeGroup.value.end;
-  //   end = moment(end).format('YYYY-MM-DD');
-  //   const form = {
-  //     from: start,
-  //     to: end,
-     
-  //   };
-
-  //   this.service.ValuesforFacebook(form).subscribe(data => {
-  //     this.valueforFacebook = data
-  //   })
-
-  // }
+  
 
 
   valueAmazonandFacebook(){
@@ -624,36 +592,28 @@ console.log(this.valueforAmazon, this.valueforFacebook)
 
 
 
-  intializationChartoption(series: number[] ):void {
+  intializationChartoption(series: number[] , name: any):void {
     this.lineChartApex = true
   
 
-   this.xaxis= {
-     
-    
-    tickAmount: 6,
-    labels: {
-      formatter: function (value) {
-        return value;
-      }
+   this.xaxis = {
+     categories: name,
+     tickAmount: 6,
+     labels: {
+     rotate:0
     }
-
-}
-
     
-   
-   
+   }
 
    this.yaxis ={
-     show: false,
-     showAlways: false
+     show: true,
+     showAlways: true,
+     
    }
-   console.log(this.yaxis)
    this.series = [{
      name: "Purchase",
      data: series  
    }]
-   console.log(this.series , "01")
 
    this.dataLabels ={
      enabled: false
@@ -677,11 +637,7 @@ console.log(this.valueforAmazon, this.valueforFacebook)
      animations: {
        enabled: false},
     
-     zoom: {
-       type: "x",
-       enabled: false,
-       autoScaleYaxis: false
-     },
+   
      toolbar: {
        show: false
      },
