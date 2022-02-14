@@ -43,7 +43,7 @@ export class OverviewComponent implements OnInit {
   
   valueforAmazon: AmazonandFacebookResult;
   valueforFacebook : AmazonandFacebookResult;
-
+ hide =false
 
   formControls = {
     rangeGroup: this.fb.group({
@@ -349,7 +349,13 @@ export class OverviewComponent implements OnInit {
     };
     console.log(form);
 
-    if (form) {
+    if (this.formControls.rangeGroup.invalid) {
+      console.log("1")
+      this.hide = true
+      
+     
+    }
+    else{
       this.loaded1 = false;
 
       setTimeout(() => {
@@ -363,6 +369,7 @@ export class OverviewComponent implements OnInit {
       this.shiprocket();
   
       this.valueAmazonandFacebook();
+
     }
   }
   customer() {
