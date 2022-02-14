@@ -490,6 +490,8 @@ export class OverviewComponent implements OnInit {
       console.log("424")
       const value1 = x.map(x=>x.totalsales)
       const value2 = x.map(x=>x.order_date)
+      const value3 = moment(value2).format('YYYY-MM-DD')
+      console.log(value2)
       this.intializationChartoption(value1, value2)
      // this.intializationChartoption(x.map(x=>Number(x.order_date)))
 
